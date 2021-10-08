@@ -19,9 +19,6 @@ public class SameStarChar {
         int star = str.lastIndexOf("*", str.length()-2);
         if (star == -1) { return true; } //Star do not exist
 
-        char before = str.charAt(star-1);
-        char after = str.charAt(star+1);
-
-        return (before == after) ;
+        return (str.charAt(star-1) == str.charAt(star+1)) ;
     }
 }
