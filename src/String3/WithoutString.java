@@ -12,28 +12,16 @@ withoutString("Hello there", "x") → "Hello there"
 public class WithoutString {
     public static void main(String[] args) {
         WithoutString test = new WithoutString();
-        System.out.println(test.withoutString("This is a FISH", "IS"));
+        System.out.println(test.withoutString("MkjtMkx", "Mk") );
     }
 
     public String withoutString(String base, String remove) {
         StringBuilder sb = new StringBuilder(base);
         System.out.println("before: " + sb);
 
+        sb = removeInd(sb, remove);
         sb = removeInd(sb, remove.toLowerCase());
         sb = removeInd(sb, remove.toUpperCase());
-        /*
-        int index = sb.indexOf(remove.toLowerCase());
-        while (index != -1) {
-            sb.delete(index, index + (remove.length()));
-            index = sb.indexOf(remove.toLowerCase());
-        }
-
-        int index1 = sb.indexOf(remove.toUpperCase());
-        while (index1 != -1) {
-            sb.delete(index1, index1 + (remove.length()));
-            index1 = sb.indexOf(remove.toUpperCase());
-        }
-        */
 
         System.out.println("after: " + sb);
         return sb.toString();
