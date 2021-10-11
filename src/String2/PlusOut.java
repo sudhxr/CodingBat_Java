@@ -15,20 +15,18 @@ public class PlusOut {
 
     public String plusOut(String str, String word) {
         String res = "";
-        for (int i=0; i<str.length()-(word.length()-1); i++) {
-            String xy = str.substring(i, i+(word.length()));
-            if (word.equals(xy)) {
-                res += xy;
-                i+=(word.length()-1);
+        int i = 0;
+
+        while(i < str.length()) {
+            if(i <= str.length() - word.length() && str.substring(i, i + word.length()).equals(word)) {
+                res += word;
+                i += word.length();
+            } else {
+                res += "+";
+                i++;
             }
-            else { res += "+"; }
         }
 
-        if ( str.length() == res.length() ) { return res; }
-        else {
-            int diff = Math.abs(str.length() - res.length());
-            for (int i=0; i<diff; i++) { res += "+"; }
-            return res;
-        }
+        return res;
     }
 }
