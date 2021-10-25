@@ -18,14 +18,11 @@ public class Post4 {
             }
         }
 
-        System.out.println("Index: " + index);
-
         int[] arr = new int[(nums.length) - (index+1)];
-        int x = 0;
-        for (int i = index + 1; i<nums.length; i++) {
-            System.out.println("i: "+ nums[i]);
-            arr[x] = nums[i];
-            x += 1;
+
+        for (int i=0; i<arr.length; i++) {
+            arr[i] = nums[index + 1];
+            index += 1;
         }
 
         return arr;
