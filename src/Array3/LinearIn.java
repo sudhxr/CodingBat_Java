@@ -10,6 +10,8 @@ linearIn([1, 2, 4, 6], [2, 3, 4]) → false
 linearIn([1, 2, 4, 4, 6], [2, 4]) → true
  */
 
+import java.util.ArrayList;
+
 public class LinearIn {
     public static void main(String[] args) {
         LinearIn test = new LinearIn();
@@ -20,25 +22,19 @@ public class LinearIn {
 
     public boolean linearIn(int[] outer, int[] inner) {
         if (inner.length == 0) { return true; }
+        ArrayList<Integer> innerStack = new ArrayList<Integer>();
 
-        int index = 0;
-        boolean check = true;
+        for (int each : inner) {
+            innerStack.add(each);
+        }
 
-        for (int i=0; i<outer.length; i++) {
-            if (outer[i] == inner[index] && i<=(outer.length - inner.length) ) {
-                int count = 0;
-                for (int j=0; j<inner.length; j++) {
-                    if (inner[j] == outer[i+j]) {
-                        count += 1;
-                    }
-                }
-                if (count == inner.length) {
-                    return true;
-                }
+        for (int each: outer) {
+            if (innerStack.size() != 0 && each == innerStack.get(0)) {
+                innerStack.remove(0);
             }
         }
 
-        return false;
+        return (innerStack.size() == 0);
     }
 
 }
