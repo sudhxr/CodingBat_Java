@@ -15,14 +15,27 @@ import java.util.ArrayList;
 public class LinearIn {
     public static void main(String[] args) {
         LinearIn test = new LinearIn();
-        int[] outer = {1, 2, 4, 6};
+        int[] outer = {2, 2, 2, 2, 2};
         int[] inner = {2, 4};
         System.out.println(test.linearIn(outer, inner));
     }
 
     public boolean linearIn(int[] outer, int[] inner) {
-        if (inner.length == 0) { return true; }
-        ArrayList<Integer> innerStack = new ArrayList<Integer>();
+        int index = 0;
+        int count = 0;
+        for (int each: outer) {
+            if (index < inner.length && each == inner[index]) {
+                index += 1;
+                count += 1;
+            }
+        }
+
+        System.out.println("Count: " + count);
+        System.out.println("Inner len: " + inner.length);
+        return count >= (inner.length);
+
+        //if (inner.length == 0) { return true; }
+        /*ArrayList<Integer> innerStack = new ArrayList<Integer>();
 
         for (int each : inner) {
             innerStack.add(each);
@@ -35,6 +48,7 @@ public class LinearIn {
         }
 
         return (innerStack.size() == 0);
+         */
     }
 
 }
