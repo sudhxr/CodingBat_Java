@@ -22,33 +22,14 @@ public class LinearIn {
 
     public boolean linearIn(int[] outer, int[] inner) {
         int index = 0;
-        int count = 0;
+
         for (int each: outer) {
             if (index < inner.length && each == inner[index]) {
                 index += 1;
-                count += 1;
             }
         }
 
-        System.out.println("Count: " + count);
-        System.out.println("Inner len: " + inner.length);
-        return count >= (inner.length);
-
-        //if (inner.length == 0) { return true; }
-        /*ArrayList<Integer> innerStack = new ArrayList<Integer>();
-
-        for (int each : inner) {
-            innerStack.add(each);
-        }
-
-        for (int each: outer) {
-            if (innerStack.size() != 0 && each == innerStack.get(0)) {
-                innerStack.remove(0);
-            }
-        }
-
-        return (innerStack.size() == 0);
-         */
+        return index >= (inner.length);
     }
 
 }
